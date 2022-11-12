@@ -70,12 +70,8 @@
    import Button, { Label } from '@smui/button';
    import IconButton, { Icon } from '@smui/icon-button';
  
-   let backgroundImage = "/img/frank.jpeg"
+   export let backgroundImage = '/img/frank.jpeg';
+   
    let clicked = 0;
+
  </script>
- 
- <style>
-   * :global(.card-media-16x9) {
-     background-image: url(https://place-hold.it/320x180?text=16x9&fontsize=23);
-   }
- </style>
