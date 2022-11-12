@@ -2,13 +2,13 @@
    <div class="card-container">
      <Card>
        <PrimaryAction on:click={() => clicked++}>
-         <Media class="card-media-16x9" aspectRatio="16x9">
+         <Media class="card-media-16x9" aspectRatio="16x9" style="background-image: url({backgroundImage});">
            <MediaContent>
              <div
                style="color: #fff; position: absolute; bottom: 16px; left: 16px;"
              >
                <h2 class="mdc-typography--headline6" style="margin: 0;">
-                 A card with media.
+                 
                </h2>
                <h3 class="mdc-typography--subtitle2" style="margin: 0;">
                  And a subtitle.
@@ -70,6 +70,7 @@
    import Button, { Label } from '@smui/button';
    import IconButton, { Icon } from '@smui/icon-button';
  
+   let backgroundImage = "/img/frank.jpeg"
    let clicked = 0;
  </script>
  
