@@ -1,0 +1,4 @@
+ffmpeg-python==0.2.0
+numpy==1.23.4
+opencv-python==4.6.0.66
+yt-dlp==2022.11.11

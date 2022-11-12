@@ -96,7 +96,7 @@ func main() {
 		location := mux.Vars(request)["location"]
 		fmt.Println("Get details of", location)
 		details := []Details{{Location: location, Message: "Success.", Success: true, Time: time.Now()}}
-		loadString, err := redisClient.Get(ctx, "dp:location:"+location+":loads").Result()
+		loadString, err := redisClient.Get(ctx, "umadp:location:"+location+":loads").Result()
 
 		if err != nil {
 			if err == redis.Nil {
@@ -121,7 +121,7 @@ func main() {
 			return
 		}
 
-		locationName, err := redisClient.Get(ctx, "dp:location:"+location+":name").Result()
+		locationName, err := redisClient.Get(ctx, "umadp:location:"+location+":name").Result()
 
 		if err != nil {
 			if err == redis.Nil {
@@ -141,7 +141,7 @@ func main() {
 	})
 
 	v1Router.HandleFunc("/locations", func(writer http.ResponseWriter, request *http.Request) {
-		locations, err := redisClient.SMembers(ctx, "dp:locations").Result()
+		locations, err := redisClient.SMembers(ctx, "umadp:locations").Result()
 		fmt.Println("Get locations")
 
 		if err != nil {
@@ -151,8 +151,8 @@ func main() {
 		json.NewEncoder(writer).Encode(locations)
 	})
 
+	v1Router.Handle("/socket/", sockjs.NewHandler("/api/v1/socket", sockjs.DefaultOptions, connectionHandler))
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public")))
-	http.Handle("/socket/", sockjs.NewHandler("/socket", sockjs.DefaultOptions, connectionHandler))
 	fmt.Println("Listening on " + host + ":" + port)
 	http.ListenAndServe(host+":"+port, router)
 
@@ -180,7 +180,7 @@ func main() {
 }
 
 func Update() {
-	locations, err := redisClient.SMembers(ctx, "dp:locations").Result()
+	locations, err := redisClient.SMembers(ctx, "umadp:locations").Result()
 
 	if err != nil {
 		fmt.Println("An error occurred while getting the list of available locations:", err)
@@ -191,7 +191,7 @@ func Update() {
 	for i, location := range locations {
 		details[i] = Details{Location: location, Message: "Success.", Time: time.Now()}
 
-		loadString, err := redisClient.Get(ctx, "dp:location:"+location+":loads").Result()
+		loadString, err := redisClient.Get(ctx, "umadp:location:"+location+":loads").Result()
 
 		if err != nil {
 			fmt.Println("An error occurred:", err)
@@ -204,7 +204,7 @@ func Update() {
 			fmt.Println("An error occurred:", err)
 		}
 
-		locationName, err := redisClient.Get(ctx, "dp:location:"+location+":name").Result()
+		locationName, err := redisClient.Get(ctx, "umadp:location:"+location+":name").Result()
 
 		if err != nil {
 			fmt.Println("An error occurred:", err)
@@ -243,8 +243,8 @@ func connectionHandler(session sockjs.Session) {
 		if msg, err := session.Recv(); err == nil {
 			details := []Details{{Message: "Success.", Success: true, Time: time.Now()}}
 
-			if strings.Contains(msg, "dp:location: ") {
-				messageParts := strings.Split(msg, "dp:location: ")
+			if strings.Contains(msg, "umadp:location: ") {
+				messageParts := strings.Split(msg, "umadp:location: ")
 
 				if len(messageParts) < 2 {
 					details[0].Message = "Malformed request."
@@ -256,9 +256,9 @@ func connectionHandler(session sockjs.Session) {
 					}
 				}
 
-				location := strings.Split(msg, "dp:location: ")[1]
+				location := strings.Split(msg, "umadp:location: ")[1]
 				details[0].Location = location
-				loadString, err := redisClient.Get(ctx, "dp:location:"+location+":loads").Result()
+				loadString, err := redisClient.Get(ctx, "umadp:location:"+location+":loads").Result()
 
 				if err != nil {
 					if err == redis.Nil {
@@ -293,7 +293,7 @@ func connectionHandler(session sockjs.Session) {
 					return
 				}
 
-				locationName, err := redisClient.Get(ctx, "dp:location:"+location+":name").Result()
+				locationName, err := redisClient.Get(ctx, "umadp:location:"+location+":name").Result()
 
 				if err != nil {
 					if err == redis.Nil {
