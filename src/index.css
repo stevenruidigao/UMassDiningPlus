@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ribbon {
+  width: 100vw;
+  height: 8px;
+}
+
+.title {
+  padding-top: 1em;
+}
+
+.heroGridContainer {
+  padding: 2em;
+}
+
+.trafficLabelContainer {
+  margin-top: 8px;
+}
+
+.trafficLabel {
+  padding: 8px;
+}
+
+.closingTimeLabel {
+  padding-top: 8px;
+}
+
+.footer {
+  margin-top: 0.5em;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  width: 80vw;
+}
+
+.footerText {
+  padding: 2em;
+}
