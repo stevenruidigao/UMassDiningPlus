@@ -24,8 +24,8 @@ import (
 )
 
 type Details struct {
-	Location     string    `json:"dp:location"`
-	LocationName string    `json:"dp:locationName"`
+	Location     string    `json:"location"`
+	LocationName string    `json:"locationName"`
 	Address      string    `json:"address"`
 	Loads        []float64 `json:"load"`
 	Time         time.Time `json:"time"`
@@ -93,9 +93,9 @@ func main() {
 	v1Router := apiRouter.PathPrefix("/v1").Subrouter()
 
 	v1Router.HandleFunc("/details/{location}", func(writer http.ResponseWriter, request *http.Request) {
-		location := mux.Vars(request)["dp:location"]
+		location := mux.Vars(request)["location"]
 		fmt.Println("Get details of", location)
-		details := []Details{{Location: location, Message: "Success.", Time: time.Now()}}
+		details := []Details{{Location: location, Message: "Success.", Success: true, Time: time.Now()}}
 		loadString, err := redisClient.Get(ctx, "dp:location:"+location+":loads").Result()
 
 		if err != nil {
