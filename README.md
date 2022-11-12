@@ -1,1 +1,1 @@
-# umassdiningplus
+# UMassDiningPlus
