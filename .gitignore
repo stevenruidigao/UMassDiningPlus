@@ -1,4 +1,6 @@
+.env
 umassdiningplus.tech
+
 .DS_Store
 node_modules
 /build
@@ -7,3 +9,5 @@ node_modules
 .env
 .env.*
 !.env.example
+
+/static/smui*.css
