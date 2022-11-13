@@ -19,7 +19,7 @@ image = Image.open(r"hamp_north_full.png")
 
 camNames = ["worcester_south","worcester_north","berk_entrance","hamp_south","hamp_north"]
 diningNames = ["worcester","berkshire","hampshire","franklin"]
-maxActivity = [52,11,46] #maximum number of people seen in each dining hall
+maxActivity = [52,11,46,99] #maximum number of people seen in each dining hall
 '''
 worcester_south 23
 worcester_north 29
@@ -68,7 +68,7 @@ def getActivity(newActivity):
     people[2] = (history[3] + history[4])/maxActivity[2]
 
     #frank
-    people[3] = 0.69
+    people[3] = (people[0] + people[1] + people[2])/maxActivity[3]
     return people
     
 recentCaptures = 5; #number of previous recordings to account for
