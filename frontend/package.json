@@ -39,7 +39,7 @@
 	"type": "module",
 	"dependencies": {
 		"@smui/linear-progress": "^7.0.0-beta.0",
-		"sass": "^1.56.1"
+		"sass": "^1.56.1",
 		"@sveltejs/adapter-static": "^1.0.0-next.48"
 	}
 }
