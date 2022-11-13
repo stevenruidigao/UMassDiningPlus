@@ -20,7 +20,7 @@
   // Temporary
   const locs = ["Worcester Dining Commons", "Hampshire Dining Commons", "Berkshire Dining Commons", "Franklin Dining Commons"];
   const pics = ["woo.jpeg","hamp.jpeg","berk.jpeg","frank.jpeg"];
-  const hours = ["7am-12am", "7am-9am", "7am-9am", "11am-12am"];
+  const hours = ["7am - 12am", "7am - 9am", "7am - 9am", "11am - 12am"];
   const busyness = [0.90, 0.85, 0.40, 0.10];
 
   /*sock.onmessage = function(e) {
@@ -40,12 +40,5 @@
 </LayoutGrid>
  
 <style>
-  .demo-cell {
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--mdc-theme-secondary, #333);
-    color: var(--mdc-theme-on-secondary, #fff);
-  }
+
 </style>

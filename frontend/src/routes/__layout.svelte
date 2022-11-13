@@ -29,7 +29,7 @@
 <TopAppBar bind:this={topAppBar} variant="standard" style="background-color: #881c1c;">
 	<Row>
 		<Section>
-			<div style="display: flex; align-items: center;">
+			<div style="display: flex; align-items: center; padding-bottom: 0.5%">
 				<IconButton class="material-icons" ripple={false}
 				  >fastfood</IconButton
 				>
