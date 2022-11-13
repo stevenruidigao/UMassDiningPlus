@@ -151,8 +151,11 @@ func main() {
 		json.NewEncoder(writer).Encode(locations)
 	})
 
+	v1Router.Handle("/socket/", sockjs.NewHandler("/socket", sockjs.DefaultOptions, connectionHandler))
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public")))
-	http.Handle("/socket/", sockjs.NewHandler("/socket", sockjs.DefaultOptions, connectionHandler))
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/client")))
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/prerendered")))
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/server")))
 	fmt.Println("Listening on " + host + ":" + port)
 	http.ListenAndServe(host+":"+port, router)
 
