@@ -17,7 +17,7 @@
           </MediaContent>
         </Media>
         <Content class="mdc-typography--body2">
-          <span>Some text here</span><div float="right">Some more text here</div>
+          <span>Some text here</span><div>Some more text here</div>
         </Content>  
 
         <div>

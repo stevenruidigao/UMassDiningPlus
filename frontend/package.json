@@ -26,6 +26,7 @@
 		"@smui/top-app-bar": "^6.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/sockjs-client": "^1.5.1",
 		"node-sass": "^8.0.0",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
@@ -39,8 +40,8 @@
 	"type": "module",
 	"dependencies": {
 		"@smui/linear-progress": "^7.0.0-beta.0",
-		"sass": "^1.56.1",
 		"@sveltejs/adapter-static": "^1.0.0-next.48",
+		"sass": "^1.56.1",
 		"sockjs-client": "^1.6.1"
 	}
 }

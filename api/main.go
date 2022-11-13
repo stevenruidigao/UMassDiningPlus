@@ -27,7 +27,7 @@ type Details struct {
 	Location     string    `json:"location"`
 	LocationName string    `json:"locationName"`
 	Address      string    `json:"address"`
-	Loads        []float64 `json:"load"`
+	Loads        []float64 `json:"loads"`
 	Time         time.Time `json:"time"`
 	Success      bool      `json:"success"`
 	Message      string    `json:"message"`
@@ -141,7 +141,7 @@ func main() {
 		json.NewEncoder(writer).Encode(locations)
 	})
 
-	v1Router.Handle("/socket/", sockjs.NewHandler("/socket", sockjs.DefaultOptions, connectionHandler))
+	v1Router.PathPrefix("/socket/").Handler(sockjs.NewHandler("/api/v1/socket", sockjs.DefaultOptions, connectionHandler))
 	Update()
 
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public")))
@@ -201,15 +201,18 @@ func getLocationsDetails() []Details {
 
 	if err != nil {
 		fmt.Println("An error occurred while getting the list of available locations:", err)
+		return []Details{}
 	}
 
 	details := make([]Details, len(locations))
 
 	for i, location := range locations {
-		details[i] = Details{Location: location, Message: "Success.", Time: time.Now()}
+		details[i] = Details{Location: location, Message: "Success.", Success: true, Time: time.Now()}
 		details[i].Loads, err = getLocationLoads(location)
 
 		if err != nil {
+			details[i].Message = "An error occurred:" + err.Error()
+			details[i].Success = false
 			fmt.Println("An error occurred:", err)
 			continue
 		}
@@ -217,6 +220,8 @@ func getLocationsDetails() []Details {
 		details[i].LocationName, err = getLocationName(location)
 
 		if err != nil {
+			details[i].Message = "An error occurred:" + err.Error()
+			details[i].Success = false
 			fmt.Println("An error occurred:", err)
 			continue
 		}
