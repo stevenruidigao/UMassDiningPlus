@@ -7,7 +7,7 @@ import streamData as sd
 import time
 import csv
 import json
-import redis
+import redis #database
 
 
 
@@ -71,13 +71,17 @@ def calcHistory(newActivity):
     with open('people_data.csv', 'r') as csvfile:
         for row in reversed(list(csv.reader(csvfile))):
             for j in range(len(row)-1):#don't scan the date column
-                avg[j] += row[j]/recentCaptures
+                #skip empty rows
+                if (len(row) == 0):
+                    continue
+                #update average
+                avg[j] += int(row[j])/recentCaptures
             if (i > recentCaptures-1):
                 break
             i += 1
         
         for j in range(len(row)-1):
-            avg[j] += newActivity[j]
+            avg[j] += newActivity[j]/recentCaptures
     return avg
 
 #continuously run
@@ -112,6 +116,7 @@ while True:
 
     #update database
     for n in range(len(activity)):
+        print(diningNames[n], activity[n])
         updateLoads(diningNames[n], activity[n])
 
     #record data
