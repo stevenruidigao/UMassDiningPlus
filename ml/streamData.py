@@ -80,12 +80,11 @@ def getFrameAtTime(video, time=-1):
     
         return frame
 
-for vid in diningStreams:
-    getYoutubeFrameAtTime(vid, save_image=True)
 
 
-#if __name__ == '__main__':
-
+if __name__ == '__main__':       
+    for vid in diningStreams:
+        getYoutubeFrameAtTime(vid, save_image=True)
 '''nyan_cat = "https://www.youtube.com/watch?v=QH2-TGUlwu4"
 video = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 nasa = "https://www.youtube.com/watch?v=nA9UZF-SZoQ"
