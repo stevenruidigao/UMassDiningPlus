@@ -7,7 +7,7 @@
             <div
               style="color: #fff; position: absolute; bottom: 16px; left: 16px;"
             >
-              <h1 class="mdc-typography--headline6" style="margin: 0;" size="7">
+              <h1 class="mdc-typography--headline6" style="margin: 0;">
                 {Name}
               </h1>
               <h3 class="mdc-typography--subtitle2" style="margin: 0;">
@@ -16,11 +16,11 @@
             </div>
           </MediaContent>
         </Media>
-        <Content class="mdc-typography--body2">
-          <span>Some text here</span><div float="right">Some more text here</div>
-        </Content>  
-
-        <div>
+        <Content class="mdc-typography--body2" style='padding-left: 5%; padding-right: 5%'>
+          Activity Level
+        </Content>
+        <div style="padding-left: 5%; padding-right: 5%">
+           
           <BusyBar repeat={5} progress={Progress}/>
         </div>
 

@@ -34,6 +34,13 @@
 	</Row>
 </TopAppBar>
 
+<!--link rel="stylesheet" href="/static/smui.css" media="(prefers-color-scheme: light)" />
+<link
+  rel="stylesheet"
+  href="/static/smui-dark.css"
+  media="screen and (prefers-color-scheme: dark)"
+/-->
+
 <AutoAdjust {topAppBar} style="display: flex; justify-content: space-between;">
 	<div class="container" style="width: 100%;"><slot /></div>
 	<!-- <div class="container" style="position: fixed;">
