@@ -9,12 +9,14 @@
     ActionButtons,
     ActionIcons,
   } from '@smui/card';
+
+  //import sock from 'sockjs-client';
+
   import Button, { Label } from '@smui/button';
   import IconButton, { Icon } from '@smui/icon-button';
   import LayoutGrid, { Cell } from '@smui/layout-grid';
   import ComplexCard from '../components/ComplexCard.svelte';
   import SockJS from 'sockjs-client';
-  
   // Temporary
   const locations = ["worcester", "hampshire", "berkshire", "franklin"];
   const names = ["Worcester Dining Commons", "Hampshire Dining Commons", "Berkshire Dining Commons", "Franklin Dining Commons"];
@@ -47,12 +49,5 @@
 </LayoutGrid>
  
 <style>
-  .demo-cell {
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--mdc-theme-secondary, #333);
-    color: var(--mdc-theme-on-secondary, #fff);
-  }
+
 </style>
