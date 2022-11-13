@@ -19,7 +19,7 @@
 <LayoutGrid>
     {#each Array(4) as _unused, _i}
       <Cell span={6}>
-        <ComplexCard backgroundImage="/img/frank.jpeg"></ComplexCard>
+        <ComplexCard backgroundImage="/img/woo.jpeg" Name="Worcester", Hours="7am-12am"></ComplexCard>
       </Cell>
     {/each}
 </LayoutGrid>
@@ -34,5 +34,3 @@
     color: var(--mdc-theme-on-secondary, #fff);
   }
 </style>
-
-<!-- <ComplexCard></ComplexCard> -->

@@ -36,9 +36,9 @@
 
 <AutoAdjust {topAppBar} style="display: flex; justify-content: space-between;">
 	<div class="container" style="width: 100%;"><slot /></div>
-	<div class="container" style="position: fixed;">
+	<!-- <div class="container" style="position: fixed;">
 		<Button on:click={switchTheme}>
 			<Label>{lightTheme ? 'Lights off' : 'Lights on'}</Label>
 		</Button>
-	</div>
+	</div> -->
 </AutoAdjust>
