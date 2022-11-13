@@ -7,7 +7,7 @@ import streamData as sd
 import time
 import csv
 import json
-import redis
+import redis #database
 
 
 
@@ -18,7 +18,7 @@ import redis
 image = Image.open(r"hamp_north_full.png")
 
 camNames = ["worcester_south","worcester_north","berk_entrance","hamp_south","hamp_north"]
-diningNames = ["worcester","berkshire","hampshire"]
+diningNames = ["worcester","berkshire","hampshire","franklin"]
 maxActivity = [52,11,46] #maximum number of people seen in each dining hall
 '''
 worcester_south 23
@@ -41,9 +41,13 @@ model = DetrForObjectDetection.from_pretrained("facebook/detr-resnet-50")
 redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
 def updateLoads(location, load):
-   loads = json.loads(redis_client.get('umadp:location:' + location + ':loads'))
-   loads.append(load)
-   redis_client.set('umadp:location:' + location + ':loads', json.dumps(loads))
+    stringy = redis_client.get('umadp:location:' + location + ':loads');
+    loads = []
+
+    if (stringy is not None) :
+        loads = json.loads(stringy)
+    loads.append(load)
+    redis_client.set('umadp:location:' + location + ':loads', json.dumps(loads))
 
 def getLoads(location):
     return json.loads(redis_client.get('umadp:location:' + location + ':loads'))
@@ -61,7 +65,10 @@ def getActivity(newActivity):
     people[1] = (history[2])/maxActivity[1]
 
     #hamp
-    people[1] = (history[3] + history[4])/maxActivity[2]
+    people[2] = (history[3] + history[4])/maxActivity[2]
+
+    #frank
+    people[3] = 0.69
     return people
     
 recentCaptures = 5; #number of previous recordings to account for
@@ -71,13 +78,17 @@ def calcHistory(newActivity):
     with open('people_data.csv', 'r') as csvfile:
         for row in reversed(list(csv.reader(csvfile))):
             for j in range(len(row)-1):#don't scan the date column
-                avg[j] += row[j]/recentCaptures
+                #skip empty rows
+                if (len(row) == 0):
+                    continue
+                #update average
+                avg[j] += int(row[j])/recentCaptures
             if (i > recentCaptures-1):
                 break
             i += 1
         
         for j in range(len(row)-1):
-            avg[j] += newActivity[j]
+            avg[j] += newActivity[j]/recentCaptures
     return avg
 
 #continuously run
@@ -112,6 +123,7 @@ while True:
 
     #update database
     for n in range(len(activity)):
+        print(diningNames[n], activity[n])
         updateLoads(diningNames[n], activity[n])
 
     #record data
@@ -125,5 +137,3 @@ while True:
     
     #wait
     time.sleep(30)
-
-

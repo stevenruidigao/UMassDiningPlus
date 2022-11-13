@@ -110,6 +110,7 @@
   export let Name="woo";
   export let Hours="7am-12am"
   export let Progress=0.69;
+
   let windowWidth = 0;
 
   let clicked = 0;

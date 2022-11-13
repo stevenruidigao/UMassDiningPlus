@@ -241,9 +241,10 @@ func connectionHandler(session sockjs.Session) {
 	closedSession := make(chan struct{})
 	rawUpdate, _ := json.Marshal(getLocationsDetails())
 
-	if err := session.Send(string(rawUpdate)); err != nil {
-		return
-	}
+	session.Send(string(rawUpdate))
+	// if err := session.Send(string(rawUpdate)); err != nil {
+	// 	return
+	// }
 
 	// publisher.Publish("[info] new participant joined chat")
 	// defer publisher.Publish("[info] participant left chat")

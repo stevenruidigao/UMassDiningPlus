@@ -23,7 +23,7 @@
   const pics = ["woo.jpeg","hamp.jpeg","berk.jpeg","frank.jpeg"];
   const hours = ["7am-12am", "7am-9am", "7am-9am", "11am-12am"];
   let busyness = [0, 0, 0, 0];
-  let sock = new SockJS("https://umassdiningplus.tech/api/v1/socket");
+  let sock = new SockJS("http://127.0.0.1:8080/api/v1/socket");
 
   sock.onopen = function() {
     console.log("Connected.");
@@ -31,9 +31,10 @@
 
   sock.onmessage = function(e) {
     let details = JSON.parse(e.data);
-    
+    console.log(e.data)
     for (let i = 0; i < details.length; i ++) {
       busyness[locations.indexOf(details[i].location)] = details[i].loads[details[i].loads.length - 1] == undefined ? 0.5 : details[i].loads[details[i].loads.length - 1];
+      console.log("data for "+details[i].location+": " +details[i].loads[details[i].loads.length - 1]);
     }
 
     busyness = busyness;
