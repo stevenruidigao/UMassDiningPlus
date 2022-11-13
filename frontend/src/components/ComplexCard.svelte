@@ -20,7 +20,9 @@
           <span>Some text here</span><div float="right">Some more text here</div>
         </Content>  
 
-        <BusyBar repeat={5}/>
+        <div>
+          <BusyBar repeat={5} progress={Progress}/>
+        </div>
 
       </PrimaryAction>
       <Actions>
@@ -62,5 +64,6 @@
   export let backgroundImage = '/img/frank.jpeg';
   export let Name="woo";
   export let Hours="7am-12am"
+  export let Progress=0.69;
   let clicked = 0;
 </script>

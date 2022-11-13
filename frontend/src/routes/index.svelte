@@ -18,13 +18,14 @@
   const locs = ["Worcester Dining Commons", "Hampshire Dining Commons", "Berkshire Dining Commons", "Franklin Dining Commons"];
   const pics = ["woo.jpeg","hamp.jpeg","berk.jpeg","frank.jpeg"];
   const hours = ["7am-12am", "7am-9am", "7am-9am", "11am-12am"];
+  const busyness = [0.90, 0.85, 0.40, 0.10];
 
 </script>
 
 <LayoutGrid>
     {#each locs as loc, i}
       <Cell span={6}>
-        <ComplexCard backgroundImage="/img/{pics[i]}" Name={loc} Hours={hours[i]}></ComplexCard>
+        <ComplexCard backgroundImage="/img/{pics[i]}" Name={loc} Hours={hours[i]} Progress={busyness[i]}></ComplexCard>
       </Cell>
     {/each}
 </LayoutGrid>

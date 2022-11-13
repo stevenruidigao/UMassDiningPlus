@@ -6,7 +6,7 @@
   import { onMount, onDestroy } from 'svelte';
   import LinearProgress from '@smui/linear-progress';
 
-  let progress = 0.69;
+  export let progress = 0.69;
   let closed = false;
   export let repeat = 1;
   
