@@ -3,10 +3,14 @@ export let length = 100;
 export let height = 20;
 export let progress = 0.5;
 
+let greenProg = 100*Math.min(progress, 0.34);
+$: greenProg = 100*Math.min(progress, 0.34);
 
-var greenProg = 100*Math.min(progress, 0.34);
 var yellowProg = 100*Math.max(0, Math.min(progress-0.33,0.34));
+$: yellowProg = 100*Math.max(0, Math.min(progress-0.33,0.34));
+
 var redProg = 100*Math.max(0, Math.min(progress-0.66,0.34));
+$: redProg = 100*Math.max(0, Math.min(progress-0.66,0.34));
 
 </script>
 
