@@ -10,7 +10,7 @@
     ActionIcons,
   } from '@smui/card';
 
-  import sock from 'sockjs-client';
+  //import sock from 'sockjs-client';
 
   import Button, { Label } from '@smui/button';
   import IconButton, { Icon } from '@smui/icon-button';
@@ -23,10 +23,10 @@
   const hours = ["7am-12am", "7am-9am", "7am-9am", "11am-12am"];
   const busyness = [0.90, 0.85, 0.40, 0.10];
 
-  sock.onmessage = function(e) {
+  /*sock.onmessage = function(e) {
      console.log('message', e.data);
      sock.close();
- };
+ };*/
 
 
 </script>

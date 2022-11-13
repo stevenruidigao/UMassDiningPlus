@@ -2,7 +2,7 @@
 	import Button from '@smui/button';
 	import type { TopAppBarComponentDev } from '@smui/top-app-bar';
 	import TopAppBar, { Row, Section, Title, AutoAdjust } from '@smui/top-app-bar';
-	// import IconButton from '@smui/icon-button';
+	import IconButton from '@smui/icon-button';
 	import { Label, Icon } from '@smui/common';
 	// import { Svg } from '@smui/common/elements';
 	// import { mdiGithub, mdiWeb } from '@mdi/js';
@@ -29,6 +29,11 @@
 <TopAppBar bind:this={topAppBar} variant="standard" style="background-color: #881c1c;">
 	<Row>
 		<Section>
+			<div style="display: flex; align-items: center;">
+				<IconButton class="material-icons" ripple={false}
+				  >fastfood</IconButton
+				>
+			  </div>
 			<Title>UMass Dining+</Title>
 		</Section>
 	</Row>
