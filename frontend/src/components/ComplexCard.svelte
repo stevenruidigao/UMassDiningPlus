@@ -20,7 +20,7 @@
           <span>Some text here</span><div float="right">Some more text here</div>
         </Content>  
 
-        <BusyBar repeat={15}/>
+        <BusyBar repeat={5}/>
 
       </PrimaryAction>
       <Actions>
@@ -44,8 +44,6 @@
     </Card>
   </div>
 </div>
-
-<pre class="status">Clicked: {clicked}</pre>
 
 <script lang="ts">
   import Card, {

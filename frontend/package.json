@@ -39,6 +39,7 @@
 	"type": "module",
 	"dependencies": {
 		"@smui/linear-progress": "^7.0.0-beta.0",
-		"sass": "^1.56.1"
+		"sass": "^1.56.1",
+		"sockjs-client": "^1.6.1"
 	}
 }
