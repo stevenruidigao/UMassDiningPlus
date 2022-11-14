@@ -1,4 +1,4 @@
-import youtube_dl as youtube_dl
+import yt_dlp as youtube_dl
 import ffmpeg
 import numpy as np
 
@@ -10,11 +10,9 @@ Worcester North - https://www.youtube.com/watch?v=7wHgOpwHz8k
 Berkshire Entrance - https://www.youtube.com/watch?v=70PKbo5ouIM
 Hampshire South - https://www.youtube.com/watch?v=RprORF_ggOA
 Hampshire North - https://www.youtube.com/watch?v=TWC87AgKJHA
-
 '''
+
 diningStreams = ["https://www.youtube.com/watch?v=89KPOnjHEC4","https://www.youtube.com/watch?v=7wHgOpwHz8k","https://www.youtube.com/watch?v=70PKbo5ouIM","https://www.youtube.com/watch?v=RprORF_ggOA","https://www.youtube.com/watch?v=TWC87AgKJHA"]
-
-
 
 
 def getYoutubeFrameAtTime(youtube_url, time=-1, ytdl_opts=None, save_image=False):

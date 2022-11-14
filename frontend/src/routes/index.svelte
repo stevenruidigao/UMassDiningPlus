@@ -21,9 +21,9 @@
   const locations = ["worcester", "hampshire", "berkshire", "franklin"];
   const names = ["Worcester Dining Commons", "Hampshire Dining Commons", "Berkshire Dining Commons", "Franklin Dining Commons"];
   const pics = ["woo.jpeg","hamp.jpeg","berk.jpeg","frank.jpeg"];
-  const hours = ["7am-12am", "7am-9am", "7am-9am", "11am-12am"];
+  const hours = ["7am - 12am", "7am - 9pm", "11am - 12am", "7am - 9pm"];
   let busyness = [0, 0, 0, 0];
-  let sock = new SockJS("http://127.0.0.1:8080/api/v1/socket");
+  let sock = new SockJS("https://umassdiningplus.tech/api/v1/socket");
 
   sock.onopen = function() {
     console.log("Connected.");

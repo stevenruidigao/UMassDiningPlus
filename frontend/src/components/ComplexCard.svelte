@@ -7,7 +7,7 @@
             <div
               style="color: #fff; position: absolute; bottom: 16px; left: 16px;"
             >
-            {#if windowWidth < 400}
+            {#if windowWidth < 800}
             <h1 class="mdc-typography--headline1"
             style="margin: 0; padding-left: 2%; padding-top: 10%; font-size:2em; line-height:110%">
               {Name}
@@ -46,7 +46,7 @@
            padding-right: 5%; padding-top: 2.5%; padding-bottom: 2.5%; font-size: 1.75em'>
             <div class = "info-container">
               <span>
-              Activity Level - 
+              Activity Level: 
               {#if Progress <= 0.33}
                 Not Busy
               {:else if Progress <= 0.67}

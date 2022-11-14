@@ -9,10 +9,9 @@ import csv
 import json
 import redis #database
 
-
-
 #model = torch.load(r".\yolov6s\model.pt")
 #https://huggingface.co/facebook/detr-resnet-50
+
 
 #for size rescaling
 image = Image.open(r"hamp_north_full.png")
@@ -44,7 +43,7 @@ def updateLoads(location, load):
     stringy = redis_client.get('umadp:location:' + location + ':loads');
     loads = []
 
-    if (stringy is not None) :
+    if (stringy is not None):
         loads = json.loads(stringy)
     loads.append(load)
     redis_client.set('umadp:location:' + location + ':loads', json.dumps(loads))
@@ -68,7 +67,7 @@ def getActivity(newActivity):
     people[2] = (history[3] + history[4])/maxActivity[2]
 
     #frank
-    people[3] = 0.69
+    people[3] = (people[0] + people[1] + people[2])/(maxActivity[0] + maxActivity[1] + maxActivity[2])
     return people
     
 recentCaptures = 5; #number of previous recordings to account for
