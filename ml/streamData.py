@@ -1,4 +1,4 @@
-import yt_dlp as youtube_dl
+import youtube_dl as youtube_dl
 import ffmpeg
 import numpy as np
 

@@ -2,7 +2,7 @@
   <div class="card-container">
     <Card>
         <Media class="card-media-16x9" aspectRatio="16x9" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.73)), url({backgroundImage});">
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.75)), url({backgroundImage});">
           <MediaContent>
             <div
               style="color: #fff; position: absolute; bottom: 16px; left: 16px;"
@@ -64,8 +64,12 @@
           </Content>
           {/if}
         <div style="padding-left: 5%; padding-right: 5%">
-           
           <FlexBar progress = {Progress}/>
+          <!-- <FlexBar progress = {Progress * 2}/>
+          <FlexBar progress = {0.14545454545454547}/>
+          <FlexBar progress = {0.25}/>
+          <FlexBar progress = {0.5}/> -->
+          <FlexBar progress = {1}/>
         </div>
 
       <Actions>
