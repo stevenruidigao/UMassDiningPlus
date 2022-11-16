@@ -17,6 +17,7 @@
     /**
      * @param {string} hexString - A hex string
      */
+
     function hexToBytes(hexString) {
         let bytes = [];
         
@@ -32,6 +33,7 @@
      * @param {number} green - Integer from 0 to 255
      * @param {number} blue - Integer from 0 to 255
      */
+
     function rgb2HSL(red, green, blue) {
         let v = Math.max(red, green, blue)
         let c = v - Math.min(red, green, blue)
@@ -81,10 +83,12 @@
         return currentString;
     }
 </script>
+
 <div class="bar-grey" style="width: {length}; height: {height};">
     <div class="bar-rainbow" style="width: {Math.round(progress * 100)}%; height: {height}; background: {gradient};">
     </div>
 </div>
+
 <style>
     .bar-grey {
         border: 4px black;

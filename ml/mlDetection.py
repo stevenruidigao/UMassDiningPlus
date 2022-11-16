@@ -97,7 +97,8 @@ while True:
         try:
             frame = sd.getYoutubeFrameAtTime(stream, save_image=False)
 
-        except:
+        except Exception as e:
+            print(e)
             totalPeople.append(0)
             continue
 
