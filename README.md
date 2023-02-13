@@ -1,5 +1,8 @@
 # UMassDiningPlus
 The UMass Dining app, but better.
+
+![Screenshot of website](/Website.png)
+
 ## Inspiration
 The original UMass Dining app has a feature that tells if a dining hall is “busy,” “moderate,” or “not busy.” On paper, it’s a useful widget: students plan out their time and dodge the lines. The only caveat is that it doesn’t work! Countless bogus readings and avoidable crowds led us to create our project, “UMass Dining+”! Our mobile-friendly website aims to accurately show how busy each dining common is by using youtube livestreams that monitor each eatery.
 
@@ -12,7 +15,7 @@ We used SockJS to stream the activity level data of each location to website vis
 
 We used Sveltekit Material UI to design and build our frontend webpage. Svelte’s dynamic elements allowed us to develop a streamlined UI/UX. The Svelte and SCSS formatting files for the web app were compiled and deployed using Vite.
 
-Our overall tech stack consists of Python, Redis, Go, and Svelte, and we host the website online using the free .tech domain offered by domains.com.
+![HuggingFace Object Detection Model](/ML Object Detection.png)
 
 ## Challenges we ran into
 * Inaccurate detection models
