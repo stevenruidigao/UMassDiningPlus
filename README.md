@@ -15,7 +15,7 @@ We used SockJS to stream the activity level data of each location to website vis
 
 We used Sveltekit Material UI to design and build our frontend webpage. Svelte’s dynamic elements allowed us to develop a streamlined UI/UX. The Svelte and SCSS formatting files for the web app were compiled and deployed using Vite.
 
-![HuggingFace Object Detection Model](/ML Object Detection.png)
+![HuggingFace Object Detection Model](/ML%20Object%20Detection.png)
 
 ## Challenges we ran into
 * Inaccurate detection models
